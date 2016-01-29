@@ -1,0 +1,13 @@
+{
+  "name": "hexapod-js",
+  "version": "0.0.1",
+  "description": "A node.js library for controlling STEMI hexapod (http://www.stemi.education/)",
+  "main": "lib/index.js",
+  "scripts": {
+    "test": "/bin/false"
+  },
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/yossarin/hexapod-js"
+  }
+}

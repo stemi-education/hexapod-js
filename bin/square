@@ -1,0 +1,26 @@
+#!/usr/bin/env node
+
+if(process.argv.length < 3) {
+  console.error('Usage: square [ip]');
+  return 1;
+}
+
+console.log("Connecting to: " + process.argv[2]);
+
+var Hexapod = require("../lib/hexapod.js").Hexapod;
+var h = new Hexapod();
+h.connect(process.argv[2], 80);
+
+// Make square!
+for(var i = 0; i < 4; i++) {
+  h.forward(0.5);
+  h.turn_right(90);
+}
+
+// when done disconnect
+interval = setInterval(function(){
+  if(h.robot_state === 'idle') {
+    clearInterval(interval);
+    h.disconnect();
+  }
+}, 100);
