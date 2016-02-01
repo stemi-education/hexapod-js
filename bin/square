@@ -5,9 +5,9 @@ if(process.argv.length < 3) {
   return 1;
 }
 
-console.log("Connecting to: " + process.argv[2]);
+console.log('Connecting to: ' + process.argv[2]);
 
-var Hexapod = require("../lib/hexapod.js").Hexapod;
+var Hexapod = require('../lib/index.js');
 var h = new Hexapod();
 h.connect(process.argv[2], 80);
 
@@ -18,7 +18,7 @@ for(var i = 0; i < 4; i++) {
 }
 
 // when done disconnect
-interval = setInterval(function(){
+var interval = setInterval(function(){
   if(h.robotState === 'idle') {
     clearInterval(interval);
     h.disconnect();
