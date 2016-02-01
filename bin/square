@@ -13,13 +13,13 @@ h.connect(process.argv[2], 80);
 
 // Make square!
 for(var i = 0; i < 4; i++) {
-  h.forward(0.5);
-  h.turn_right(90);
+  h.goForward(0.5);
+  h.turnRight(90);
 }
 
 // when done disconnect
 interval = setInterval(function(){
-  if(h.robot_state === 'idle') {
+  if(h.robotState === 'idle') {
     clearInterval(interval);
     h.disconnect();
   }

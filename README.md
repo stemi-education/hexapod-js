@@ -11,11 +11,11 @@ var Hexapod = require('hexapod-js').Hexapod;
 var h = new Hexapod();
 h.connect('192.168.4.1', 80);
 
-h.forward(0.5);
-h.turn_right(90);
-h.forward(0.5);
-h.turn_right(90);
-h.forward(0.5);
-h.turn_right(90);
-h.forward(0.5);
+h.goForward(0.5);
+h.turnRight(90);
+h.gOForward(0.5);
+h.turnRight(90);
+h.goForward(0.5);
+h.turnRight(90);
+h.goForward(0.5);
 ```
