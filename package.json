@@ -8,6 +8,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "http://github.com/yossarin/hexapod-js"
+    "url": "http://github.com/steami-education/hexapod-js"
+  },
+  "dependencies":{
+    "lodash": "4.1.0",
+    "loglevel": "1.4.0"
   }
 }
