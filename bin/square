@@ -8,19 +8,11 @@ if(process.argv.length < 3) {
 console.log('Connecting to: ' + process.argv[2]);
 
 var Hexapod = require('../lib/index.js');
-var h = new Hexapod();
-h.connect(process.argv[2], 80);
+var h = new Hexapod(process.argv[2], 80);
+//h.connect();
 
 // Make square!
 for(var i = 0; i < 4; i++) {
   h.goForward(0.5);
   h.turnRight(90);
 }
-
-// when done disconnect
-var interval = setInterval(function(){
-  if(h.robotState === 'idle') {
-    clearInterval(interval);
-    h.disconnect();
-  }
-}, 100);
