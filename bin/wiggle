@@ -1,0 +1,40 @@
+#!/usr/bin/env node
+
+if(process.argv.length < 3) {
+  console.error('Usage: wiggle [ip]');
+  return 1;
+}
+
+console.log('Connecting to: ' + process.argv[2]);
+
+var Hexapod = require('../lib/hexapod.js').Hexapod;
+var Packet  = require('../lib/hexapod.js').Packet;
+var h = new Hexapod(process.argv[2], 80);
+
+//periodic function
+var f = function(x){
+  x=x%4;
+  if(x<=1){
+    return x;
+  } else if(x<=3){
+    return -x+2;
+  } else {
+    return x-4;
+  }
+}
+
+var x = 0;
+
+//register setter interval
+h.intervalSetter = setInterval(function(){
+  h.currentPacket = new Packet({staticTilt: 1, accY: 39*f(x), duration: 5});
+  x += 0.1;
+}, 100);
+
+//conect via TCP to enable 10Hz updates
+h.connect();
+
+//end after 10 seconds
+setTimeout(function(){
+  h.disconnect();
+}, 10000)

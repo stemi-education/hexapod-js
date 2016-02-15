@@ -9,9 +9,8 @@ console.log('Connecting to: ' + process.argv[2]);
 
 var Hexapod = require('../lib/index.js');
 var h = new Hexapod(process.argv[2], 80);
-//h.connect();
 
-// Make square!
+// Make a square!
 for(var i = 0; i < 4; i++) {
   h.goForward(0.5);
   h.turnRight(90);
