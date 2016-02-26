@@ -1,0 +1,24 @@
+<html>
+<head>
+  <script src="lodash.min.js"></script>
+  <script src="loglevel.min.js"></script>
+  <script src="web-hexapod.js"></script>
+</head>
+<body>
+  <h2>This html file serves as an example of using the hexdapod-web.js library.</h2>
+    
+  <p>The code below should send one packet to the hexapod,
+     commanding it to go straight at 70% speed.<p>
+  
+  <p>
+    var p = new Packet({power:70});<br>
+    h.sendPacketHTTP(p);
+  </p>
+
+  <script>
+    var p = new Packet({power:70});
+    h.sendPacketHTTP(p);
+  </script>
+
+</body>
+</html>
