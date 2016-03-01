@@ -1,10 +1,10 @@
-/** 
+/**
  * hexapod-web.js
  *
  * A library for the Web Browser modeled after hexapod-js (library for Node.JS)
  *
  * Dependencies: loglevel, lodash
- * 
+ *
  */
 
 log.setLevel(log.levels.DEBUG);
