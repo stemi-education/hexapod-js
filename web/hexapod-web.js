@@ -42,7 +42,7 @@ var Hexapod = function(ip, port){
  *  Special flags (Tilt bytes are MUTUALY EXCUSIVE):
  *   staticTilt - [0,1] 1 -> enable body tilting according to the accelerometer
  *   movingTilt - [0,1] 1 -> enable body tilting while walking *EXPERIMENTAL*
- *   onOff      - [0,1] 1 -> robot operational; 0 -> robot sleeping *NOT IMPLEMENTED*
+ *   onOff      - [0,1] 1 -> robot operational; 0 -> robot sleeping
  *
  *  Accelerometer (one of the *Tilt bytes must be 1):
  *   Bytes should containe acceleration force in (m/s^2 * 10), saturated at -40 and 40
@@ -59,14 +59,14 @@ var Hexapod = function(ip, port){
  *                         firmware needs to be modified in order to utilize
  *                         these bytes.
  *
- *  [EXPERIMENTAL] duration - [0..65535] specifies how long will a packet be
- *                            "executed" on a robot. If 0, the robot will go in
- *                            rest state as soon as the timer on robot expires.
- *                            Value represents number of cycles, which is 20ms
- *                            for STEMI hexapod. E.g. to command the robot to go
- *                            forward for 1 second with the maximum speed, the
- *                            packet would be crated as:
- *                              var packet = new Packet({power: 100, duration: 50});
+ *  duration - [0..65535] specifies how long will a packet be
+ *             "executed" on a robot. If 0, the robot will go in
+ *             rest state as soon as the timer on robot expires.
+ *             Value represents number of cycles, which is 20ms
+ *             for STEMI hexapod. E.g. to command the robot to go
+ *             forward for 1 second with the maximum speed, the
+ *             packet would be crated as:
+ *               var packet = new Packet({power: 100, duration: 50});
  *
  */
  var Packet = function(parameters){
@@ -76,7 +76,7 @@ var Hexapod = function(ip, port){
      rotation: 0,
      staticTilt: 0,
      movingTilt: 0,
-     onOff: 0,
+     onOff: 1,
      accX: 0,
      accY: 0,
      slidersArray: [50, 25, 0, 0, 0, 0, 0, 0, 0],
